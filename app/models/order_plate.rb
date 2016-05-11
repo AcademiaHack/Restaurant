@@ -1,14 +1,15 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: order_plates
 #
 #  id         :integer          not null, primary key
-#  name       :string
+#  order_id   :integer
+#  plate_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Category < ActiveRecord::Base
-  has_many :plates, through: :plate_categories
-  has_many :plate_categories
+class OrderPlate < ActiveRecord::Base
+  belongs_to :order
+  belongs_to :plate
 end

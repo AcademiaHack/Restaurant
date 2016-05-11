@@ -11,21 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511040021) do
+ActiveRecord::Schema.define(version: 20160511153657) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "categories_plates", id: false, force: :cascade do |t|
-    t.integer "category_id_id"
-    t.integer "plate_id_id"
-  end
-
-  add_index "categories_plates", ["category_id_id"], name: "index_categories_plates_on_category_id_id"
-  add_index "categories_plates", ["plate_id_id"], name: "index_categories_plates_on_plate_id_id"
 
   create_table "customers", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +27,16 @@ ActiveRecord::Schema.define(version: 20160511040021) do
   end
 
   add_index "customers", ["restaurant_id"], name: "index_customers_on_restaurant_id"
+
+  create_table "order_plates", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "plate_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "order_plates", ["order_id"], name: "index_order_plates_on_order_id"
+  add_index "order_plates", ["plate_id"], name: "index_order_plates_on_plate_id"
 
   create_table "orders", force: :cascade do |t|
     t.string   "status"
@@ -46,6 +48,16 @@ ActiveRecord::Schema.define(version: 20160511040021) do
 
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id"
   add_index "orders", ["waiter_id"], name: "index_orders_on_waiter_id"
+
+  create_table "plate_categories", force: :cascade do |t|
+    t.integer  "plate_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "plate_categories", ["category_id"], name: "index_plate_categories_on_category_id"
+  add_index "plate_categories", ["plate_id"], name: "index_plate_categories_on_plate_id"
 
   create_table "plates", force: :cascade do |t|
     t.string   "name"

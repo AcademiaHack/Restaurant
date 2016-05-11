@@ -11,6 +11,8 @@
 #
 
 class Plate < ActiveRecord::Base
-  has_and_belongs_to_many :categories
+  has_many :categories, through: :plate_categories
+  has_many :plate_categories
+  has_many :order_plates
   belongs_to :restaurant
 end

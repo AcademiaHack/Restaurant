@@ -11,7 +11,8 @@
 #
 
 class Order < ActiveRecord::Base
-  has_many :plates
+  has_many :plates, through: :order_plates
+  has_many :order_plates
   belongs_to :customer
   belongs_to :waiter
 end
