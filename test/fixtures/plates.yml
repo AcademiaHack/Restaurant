@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: plates
+#
+#  id            :integer          not null, primary key
+#  name          :string
+#  prize         :integer
+#  restaurant_id :integer
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  prize: MyString
+  restaurant_id: 
+
+two:
+  name: MyString
+  prize: MyString
+  restaurant_id: 
