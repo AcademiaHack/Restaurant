@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 20160511153657) do
 
   create_table "plates", force: :cascade do |t|
     t.string   "name"
-    t.integer  "prize",         limit: 2
+    t.integer  "price",         limit: 2
     t.integer  "restaurant_id"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
